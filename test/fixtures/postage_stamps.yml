@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  original_price: 9.99
+  appraised_price: 9.99
+  description: MyText
+  issue_date: 2013-04-30 22:09:09
+
+two:
+  original_price: 9.99
+  appraised_price: 9.99
+  description: MyText
+  issue_date: 2013-04-30 22:09:09

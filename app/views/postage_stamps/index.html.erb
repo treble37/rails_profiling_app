@@ -1,0 +1,29 @@
+<h1>Listing postage_stamps</h1>
+
+<table>
+  <tr>
+    <th>Original price</th>
+    <th>Appraised price</th>
+    <th>Description</th>
+    <th>Issue date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @postage_stamps.each do |postage_stamp| %>
+  <tr>
+    <td><%= postage_stamp.original_price %></td>
+    <td><%= postage_stamp.appraised_price %></td>
+    <td><%= postage_stamp.description %></td>
+    <td><%= postage_stamp.issue_date %></td>
+    <td><%= link_to 'Show', postage_stamp %></td>
+    <td><%= link_to 'Edit', edit_postage_stamp_path(postage_stamp) %></td>
+    <td><%= link_to 'Destroy', postage_stamp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Postage stamp', new_postage_stamp_path %>

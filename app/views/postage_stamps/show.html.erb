@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Original price:</b>
+  <%= @postage_stamp.original_price %>
+</p>
+
+<p>
+  <b>Appraised price:</b>
+  <%= @postage_stamp.appraised_price %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @postage_stamp.description %>
+</p>
+
+<p>
+  <b>Issue date:</b>
+  <%= @postage_stamp.issue_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_postage_stamp_path(@postage_stamp) %> |
+<%= link_to 'Back', postage_stamps_path %>

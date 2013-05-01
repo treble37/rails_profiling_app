@@ -1,0 +1,2 @@
+module PostageStampsHelper
+end
