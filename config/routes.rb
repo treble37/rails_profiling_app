@@ -4,7 +4,9 @@ RailsProfilingApp::Application.routes.draw do
 
   resources :users do
     resources :postage_stamps
-    get 'show_appraised_prices', :on=>:member
+    get 'show_unique_appraised_prices_array', :on=>:collection
+    get 'show_unique_appraised_prices_array2', :on=>:collection
+    get 'show_unique_appraised_prices_array3', :on=>:collection
   end
 
 

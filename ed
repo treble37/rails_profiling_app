@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/bruce/Desktop/github_projects/rails_profiling_app/app/controllers/users_controller.rb @ line 93 UsersController#show_unique_appraised_prices:
+
+     [1;34m84[0m: [1;31mdef[0m [1;34mshow_unique_appraised_prices[0m
+     [1;34m85[0m:   [0;34m#show unique appraised prices for each user[0m
+     [1;34m86[0m:   @users = [1;34m[4mUser[0m.all
+     [1;34m87[0m: 
+     [1;34m88[0m:   [0;34m#Method 1: Use arrays[0m
+     [1;34m89[0m:   @appraised_prices = [1;34m[4mArray[0m.new
+     [1;34m90[0m:   @users.each [1;31mdo[0m |u1|
+     [1;34m91[0m:     @appraised_prices<<u1.postage_stamps.map(&[1;32m:appraised_price[0m).uniq
+     [1;34m92[0m:   [1;31mend[0m
+ =>  [1;34m93[0m:   binding.pry
+     [1;34m94[0m:   [0;34m#Method 2: Use hash[0m
+     [1;34m95[0m: [0;34m#   @appraised_prices = @users.inject({}) do |hash,[0m
+     [1;34m96[0m: [0;34m#   phone_numbers = people.inject({}) do |hash, person|[0m
+     [1;34m97[0m: [0;34m# hash[person.id] = person.phone_numbers.map(&:number)[0m
+     [1;34m98[0m: [0;34m# hash[0m
+     [1;34m99[0m: 
+    [1;34m100[0m: 
+    [1;34m101[0m: 
+    [1;34m102[0m:   respond_to [1;31mdo[0m |format|
+    [1;34m103[0m:     format.html [0;34m# show.html.erb[0m
+    [1;34m104[0m:     format.json { render [35mjson[0m: @user }
+    [1;34m105[0m:   [1;31mend[0m
+    [1;34m106[0m: [1;31mend[0m
+

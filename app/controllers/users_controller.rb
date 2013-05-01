@@ -80,13 +80,70 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def show_appraised_prices
-    @user = User.find(params[:id])
+  def show_unique_appraised_prices_array
+    # RubyProf.start
+    #show unique appraised prices for each user
+    @users = User.all
+    
+    @appraised_prices = Array.new
+    @users.each do |u1|
+      @appraised_prices<<u1.postage_stamps.map(&:appraised_price).uniq
+    end
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user }
+      format.json { render json: @users }
     end
+    # results = RubyProf.stop
+    # File.open "#{Rails.root}/tmp/performance/profile-tree_show.prof", 'w' do |file|
+    #   RubyProf::CallTreePrinter.new(results).print(file)
+    # end
   end
+  def show_unique_appraised_prices_array2
+    #RubyProf.start
+    @users = User.all
+    
+    @appraised_prices = Array.new
+    @users.each do |u1|
+      temp_arr = []
+      u1.postage_stamps.each do |p1|
+        temp_arr<<p1.appraised_price
+      end
+      @appraised_prices<<temp_arr
+    end
+   
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @users }
+    end
+    # results = RubyProf.stop
+    # File.open "#{Rails.root}/tmp/performance/profile-tree_show2.prof", 'w' do |file|
+    #   RubyProf::CallTreePrinter.new(results).print(file)
+    # end
+  end
+
+  def show_unique_appraised_prices_array3
+    # RubyProf.start
+    @users = User.all
+    
+    @appraised_prices = Array.new
+    temp_arr = []
+    @users.each do |u1|
+      u1.postage_stamps.each do |p1|
+        temp_arr<<p1.appraised_price
+      end
+      @appraised_prices<<temp_arr
+      temp_arr.clear
+    end
+   
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @users }
+    end
+    # results = RubyProf.stop
+    # File.open "#{Rails.root}/tmp/performance/profile-tree_show3.prof", 'w' do |file|
+    #   RubyProf::CallTreePrinter.new(results).print(file)
+    # end
+  end
+
 end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Unique Appraised Values</h2>
+<table>
+  <% @appraised_prices.each do |ps| %>
+    <tr>
+      <% ps.each do |price| %>
+        <td><%= number_to_currency(price) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', users_path %>

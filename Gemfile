@@ -24,7 +24,12 @@ gem 'jquery-rails'
 
 gem 'execjs'
 gem 'therubyracer'
+gem 'pry'
+gem 'rails-footnotes', '>= 3.7.9', :group => :development
 gem 'rack-mini-profiler'
+gem 'ruby-prof'
+gem 'test-unit'
+#gem 'rack-perftools_profiler', :require => 'rack/perftools_profiler'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
