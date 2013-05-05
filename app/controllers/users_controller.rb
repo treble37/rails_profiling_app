@@ -87,7 +87,7 @@ class UsersController < ApplicationController
     
     @appraised_prices = Array.new
     @users.each do |u1|
-      @appraised_prices<<u1.postage_stamps.map(&:appraised_price).uniq
+      @appraised_prices<<u1.postage_stamps.map(&:appraised_price).uniq!
     end
 
     respond_to do |format|
@@ -109,7 +109,7 @@ class UsersController < ApplicationController
       u1.postage_stamps.each do |p1|
         temp_arr<<p1.appraised_price
       end
-      @appraised_prices<<temp_arr
+      @appraised_prices<<temp_arr.uniq!
     end
    
     respond_to do |format|
@@ -132,7 +132,7 @@ class UsersController < ApplicationController
       u1.postage_stamps.each do |p1|
         temp_arr<<p1.appraised_price
       end
-      @appraised_prices<<temp_arr
+      @appraised_prices<<temp_arr.uniq!
       temp_arr.clear
     end
    
